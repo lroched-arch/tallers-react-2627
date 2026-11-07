@@ -364,17 +364,17 @@ La configuració i l'estil bàsic de l'esglaó 2 són suficients per completar l
 
 Marca cada criteri quan el compleixis:
 
-- [ ] El projecte s'engega amb `npm run dev` sense errors.
-- [ ] La pàgina mostra «Hola món!» dins d'un element semàntic (`main`, `h1`).
-- [ ] El comptador comença a `0`; «Incrementa» suma `1` i «Decrementa» resta `1`.
-- [ ] «Reinicia» torna el comptador a `0`, tant des d'un valor positiu com negatiu.
-- [ ] L'estat es gestiona amb `useState` i no es muta directament.
-- [ ] Els esdeveniments fan servir funcions (`onClick={...}`), no crides durant el render.
-- [ ] Tailwind està instal·lat i configurat amb el plugin `@tailwindcss/vite`.
-- [ ] `src/index.css` conté `@import "tailwindcss";`.
-- [ ] La interfície té un estil bàsic coherent i els botons tenen `hover` i focus visible.
-- [ ] No queden estils ni imports del boilerplate de Vite.
-- [ ] La consola del navegador no mostra errors.
+- [ x ] El projecte s'engega amb `npm run dev` sense errors.
+- [ x ] La pàgina mostra «Hola món!» dins d'un element semàntic (`main`, `h1`).
+- [ x ] El comptador comença a `0`; «Incrementa» suma `1` i «Decrementa» resta `1`.
+- [ x ] «Reinicia» torna el comptador a `0`, tant des d'un valor positiu com negatiu.
+- [ x ] L'estat es gestiona amb `useState` i no es muta directament.
+- [ x ] Els esdeveniments fan servir funcions (`onClick={...}`), no crides durant el render.
+- [ x ] Tailwind està instal·lat i configurat amb el plugin `@tailwindcss/vite`.
+- [ x ] `src/index.css` conté `@import "tailwindcss";`.
+- [ x ] La interfície té un estil bàsic coherent i els botons tenen `hover` i focus visible.
+- [ x ] No queden estils ni imports del boilerplate de Vite.
+- [ x ] La consola del navegador no mostra errors.
 
 El missatge segons el valor, desactivar «Reinicia» quan val `0` i extreure el comptador a `Comptador.jsx` són reptes opcionals, no requisits per completar la fitxa.
 
