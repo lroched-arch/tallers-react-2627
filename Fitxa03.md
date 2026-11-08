@@ -470,6 +470,9 @@ function FormulariTasca({ onAfegir }) {
 
 **Comprovació:** en enviar el formulari, la pàgina no es recarrega, el camp es buida i la tasca apareix a la llista. La consola no mostra cap avís de `key`.
 
+___
+
+
 ### Esglaó 3 — Repte: llista i estat buit
 
 - Mostra el nombre total de tasques.

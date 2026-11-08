@@ -24,7 +24,7 @@ function Comptador({valor, missatge, tipus, onDuplica, onCanvia, onReinicia, pas
         <Missatge  tipus={tipus} text={missatge}></Missatge >
         
         <p>Has fet click {valor} vegades</p>
-        <div className='flex flex-col sm:flex-row gap-2'>
+        <div className='flex flex-col sm:flex-row gap-3'>
             {accions.map(({ id, text, variant }) => (
                 <Boto className="w-full sm:w-auto" key={id} variant={variant} onClick={() => executaAccio(id)} disabled={id==='reinicia' && valor ===0}>{text}</Boto>
             ))}

@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import Comptador from './components/Comptador.jsx'
 import Targeta from './components/Targeta.jsx'
+import FormulariTasca from './components/FormulariTasca.jsx'
 
 function App() {
   const [comptador, setComptador] = useState(0);
+  const [tasques, setTasques]=useState([])
+  
 
   function duplica(){
     setComptador ((anterior) => anterior*2)
@@ -43,6 +46,15 @@ function App() {
         if (comptador <0) return 'error'
         
     }
+
+  function afegirTasca(text){
+    const novaTasca={
+     id:crypto.randomUUID(), 
+     text, 
+     feta:false
+    }
+    setTasques([...tasques, novaTasca])
+  }
   
   return (
     <main className={`min-h-screen flex flex-col gap-8 justify-center items-center bg-fuchsia-50 dark:bg-fuchsia-950 transition duration-200 ${fosc ? 'dark' : ''}`}>
@@ -53,7 +65,17 @@ function App() {
       <Comptador tipus={calculaTipus(comptador)} valor={comptador} missatge={missatge} onCanvia={canvia} onDuplica={duplica} onReinicia={reinicia} etiqueta="Hola món!">
       </Comptador>
 
-    </Targeta> 
+    </Targeta>
+    <Targeta titol='Tasques'>
+      <FormulariTasca onAfegir={afegirTasca}/>
+      <ul>
+        {tasques.map(({id, text})=>(
+        <li key={id}>{text}</li>
+      ))}
+      </ul>
+      
+    </Targeta>
+    
       
          
     </main>
