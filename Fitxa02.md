@@ -574,19 +574,19 @@ Aquest esglaó és obligatori: `.map()` i `key` són continguts que has de saber
 
 Marca cada criteri quan el compleixis:
 
-- [ ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
-- [ ] `App` conserva l'estat i els callbacks.
-- [ ] Cada component viu en un fitxer propi dins de `src/components/` (excepte `App`, que viu a `src/App.jsx`).
-- [ ] `Comptador` no importa `useState` i només mostra dades i notifica accions.
-- [ ] `Comptador` rep els props `valor`, `missatge`, `tipus`, `pas` i els callbacks (`pas` s'introdueix a l'Activitat 1).
-- [ ] `Boto` utilitza `children`, `variant`, combina `className`, propaga props amb `...props` i té `type="button"` per defecte.
-- [ ] `Targeta` utilitza `children` i rep un `titol`.
-- [ ] `Missatge` rep `text` i `tipus` i canvia d'estil segons el tipus.
-- [ ] Els botons tenen estats `hover`, focus visible i `disabled`.
-- [ ] Les accions es generen amb `.map()` i cada element té una `key` estable.
-- [ ] Tailwind continua funcionant i no hi ha classes dinàmiques.
-- [ ] La consola del navegador no mostra errors ni avisos.
-- [ ] L'estructura de components és clara i cada fitxer té una responsabilitat.
+- [ x ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
+- [ x ] `App` conserva l'estat i els callbacks.
+- [ x ] Cada component viu en un fitxer propi dins de `src/components/` (excepte `App`, que viu a `src/App.jsx`).
+- [ x ] `Comptador` no importa `useState` i només mostra dades i notifica accions.
+- [ x ] `Comptador` rep els props `valor`, `missatge`, `tipus`, `pas` i els callbacks (`pas` s'introdueix a l'Activitat 1).
+- [ x ] `Boto` utilitza `children`, `variant`, combina `className`, propaga props amb `...props` i té `type="button"` per defecte.
+- [ x ] `Targeta` utilitza `children` i rep un `titol`.
+- [ x ] `Missatge` rep `text` i `tipus` i canvia d'estil segons el tipus.
+- [ x ] Els botons tenen estats `hover`, focus visible i `disabled`.
+- [ x ] Les accions es generen amb `.map()` i cada element té una `key` estable.
+- [ x ] Tailwind continua funcionant i no hi ha classes dinàmiques.
+- [ x ] La consola del navegador no mostra errors ni avisos.
+- [ x ] L'estructura de components és clara i cada fitxer té una responsabilitat.
 
 L'acció «Duplica» i el prop opcional `etiqueta` són reptes d'ampliació; la resta dels criteris són requisits de la fitxa.
 
