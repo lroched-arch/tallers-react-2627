@@ -8,6 +8,7 @@ function Missatge({text, tipus='info'}){
     return (
         <>
         <p className={`text-xl font-sans ${colorsTipus[tipus]}`}>{text}</p>
+        
         </>
     )
 }
