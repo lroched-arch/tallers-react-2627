@@ -38,7 +38,7 @@ function FormulariTasca({onAfegir}){
     return (
         
         <form onSubmit={envia} className='flex flex-col justify-center items-center'>
-            <label htmlFor='tasca'>Nova tasca</label>
+            <label htmlFor='tasca'/>
             <div >
                 {error && <Missatge text={error} tipus="error"  />}
                 <input 

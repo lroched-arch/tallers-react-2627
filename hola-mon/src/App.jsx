@@ -4,6 +4,7 @@ import Targeta from './components/Targeta.jsx'
 import FormulariTasca from './components/FormulariTasca.jsx'
 import Tasca from './components/Tasca.jsx';
 import LlistaTasques from './components/LlistaTasques.jsx';
+import Boto from './components/Boto.jsx';
 
 function App() {
   const [comptador, setComptador] = useState(0);
@@ -89,6 +90,21 @@ function App() {
     setTasques(llistanova)
   }
 
+  //comptador de pendents
+  let pendents;
+  let fetes;
+  function calcularTasquesPendents(tasques){
+    pendents=tasques.filter((tasca) => !tasca.feta).length
+    fetes=tasques.length-pendents 
+  }
+  calcularTasquesPendents(tasques)
+
+  //eliminar completadas
+  function eliminarCompletades(){
+    const llistanova=tasques.filter((tasca)=>!tasca.feta)
+    setTasques(llistanova)
+  }
+
   return (
     <main className={`min-h-screen flex flex-col gap-8 justify-center items-center bg-fuchsia-50 dark:bg-fuchsia-950 transition duration-200 ${fosc ? 'dark' : ''}`}>
     <button onClick={enfosquir} className={`p-4 bg-white border border-fuchsia-900 rounded-full dark:bg-fuchsia-800 dark:text-white transition w-30 duration-200 `}>Llum/Fosc</button>
@@ -100,7 +116,14 @@ function App() {
 
     </Targeta>
     <Targeta titol='Tasques'>
-      <p>{missatgeTasques}</p>
+      <p className='text-md'>{missatgeTasques}</p>
+      <div className='bg-fuchsia-100 border rounded-xl p-2 border-fuchsia-900'>
+          <p><strong>Tasques fetes:</strong> {fetes}</p>
+          <p><strong>Tasques pendents:</strong> {pendents}</p>
+        
+      </div>
+      
+      <Boto variant="perill" aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina tasques completades</Boto>
       <FormulariTasca onAfegir={afegirTasca}/>
       <LlistaTasques tasques={tasques} onToggle={toggleTasca} onElimina={eliminaTasca}/>
       
