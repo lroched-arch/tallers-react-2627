@@ -27,20 +27,17 @@ function FormulariTasca({onAfegir}){
             if (error) setError('')
                 
         }
-    let desactivat;    
-    if (text.trim()===""){
-        desactivat=true;
-    }
-    else{
-        desactivat=false;
-    }
+    
     
     return (
         
-        <form onSubmit={envia} className='flex flex-col justify-center items-center'>
-            <label htmlFor='tasca'/>
-            <div >
-                {error && <Missatge text={error} tipus="error"  />}
+        <form onSubmit={envia} noValidate className='flex flex-col justify-center items-center'>
+            <label htmlFor='tasca'>Nova  tasca</label>
+            <div className='flex flex-cols' >
+                <div id="error-tascas">
+                   {error && <Missatge text={error} tipus="error"  />} 
+                </div>
+                
                 <input 
                     className='border rounded-md m-2 p-1 dark:bg-fuchsia-100' 
                     id='tasca' 
@@ -48,9 +45,12 @@ function FormulariTasca({onAfegir}){
                     placeholder='Introdueix nova tasca..' 
                     autoComplete='off' 
                     value={text}
-                     
-                    onChange={canviaText}/>
-            <Boto type="submit" disabled={desactivat} >Afegir</Boto>
+                    maxLength={80}
+                    onChange={canviaText}
+                    aria-describedby="error-tasca"/>
+                
+            <Boto type="submit">Afegir</Boto>
+            <p className='text-center text-slate-500'>{text.length}/80</p>
             </div>
             
         </form>

@@ -117,7 +117,7 @@ function App() {
     </Targeta>
     <Targeta titol='Tasques'>
       <p className='text-md'>{missatgeTasques}</p>
-      <div className='bg-fuchsia-100 border rounded-xl p-2 border-fuchsia-900'>
+      <div className='bg-fuchsia-50 border rounded-xl p-2 border-fuchsia-900'>
           <p><strong>Tasques fetes:</strong> {fetes}</p>
           <p><strong>Tasques pendents:</strong> {pendents}</p>
         
