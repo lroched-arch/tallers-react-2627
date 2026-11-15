@@ -27,7 +27,13 @@ function FormulariTasca({onAfegir}){
             if (error) setError('')
                 
         }
-    
+    let desactivat;    
+    if (text.trim()===""){
+        desactivat=true;
+    }
+    else{
+        desactivat=false;
+    }
     
     return (
         
@@ -36,7 +42,7 @@ function FormulariTasca({onAfegir}){
             <div >
                 {error && <Missatge text={error} tipus="error"  />}
                 <input 
-                    className='border rounded-md m-2 p-1' 
+                    className='border rounded-md m-2 p-1 dark:bg-fuchsia-100' 
                     id='tasca' 
                     type='text' 
                     placeholder='Introdueix nova tasca..' 
@@ -44,7 +50,7 @@ function FormulariTasca({onAfegir}){
                     value={text}
                      
                     onChange={canviaText}/>
-            <Boto type="submit">Afegir</Boto>
+            <Boto type="submit" disabled={desactivat} >Afegir</Boto>
             </div>
             
         </form>

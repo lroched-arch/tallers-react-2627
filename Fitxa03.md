@@ -587,12 +587,12 @@ No guardis els comptadors en un `useState` separat: són estat derivat.
 
 Marca cada criteri quan el compleixis:
 
-- [ ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
-- [ ] El comptador de la Fitxa 02 continua funcionant.
-- [ ] Cada component viu en un fitxer propi dins de `src/components/` (excepte `App`).
-- [ ] L'input del formulari és controlat amb `value` i `onChange`.
-- [ ] El formulari fa servir `onSubmit` i `preventDefault()`.
-- [ ] La llista de tasques viu a `App`; el text i l'error viuen a `FormulariTasca`.
+- [ x ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
+- [ x ] El comptador de la Fitxa 02 continua funcionant.
+- [ x ] Cada component viu en un fitxer propi dins de `src/components/` (excepte `App`).
+- [ x ] L'input del formulari és controlat amb `value` i `onChange`.
+- [ x ] El formulari fa servir `onSubmit` i `preventDefault()`.
+- [ x ] La llista de tasques viu a `App`; el text i l'error viuen a `FormulariTasca`.
 - [ ] Afegir, completar i eliminar tasques crea arrays nous; no es muta l'estat.
 - [ ] Cada tasca té un `id` estable i la llista fa servir `key={tasca.id}`.
 - [ ] El formulari valida el text buit i mostra un missatge.

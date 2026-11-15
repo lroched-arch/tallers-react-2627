@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Comptador from './components/Comptador.jsx'
 import Targeta from './components/Targeta.jsx'
 import FormulariTasca from './components/FormulariTasca.jsx'
+import Tasca from './components/Tasca.jsx';
 
 function App() {
   const [comptador, setComptador] = useState(0);
@@ -21,10 +22,10 @@ function App() {
   if (comptador==0){
     missatge='Encara no has començat'
   }
-  if (comptador<0){
+  else if (comptador<0){
     missatge='Compte, vas enrere!'
   }
-  if (comptador>0){
+  else {
     missatge='Vas per bon camí!'
   }
 
@@ -53,9 +54,25 @@ function App() {
      text, 
      feta:false
     }
+    
     setTasques([...tasques, novaTasca])
   }
+
+  // comptador tasques i missatgeTasques
+  let totalTasques=tasques.length;
+  let missatgeTasques="";
+  if (totalTasques<=0){
+    missatgeTasques="Encara no hi ha tasques. Afegeix-ne una.";
+  }
+  else if(totalTasques==1){
+    missatgeTasques=`Tens ${totalTasques} tasca afegida`;
+  }
+  else{
+    missatgeTasques=`Tens ${totalTasques} tasques afegides`
+  }
   
+
+
   return (
     <main className={`min-h-screen flex flex-col gap-8 justify-center items-center bg-fuchsia-50 dark:bg-fuchsia-950 transition duration-200 ${fosc ? 'dark' : ''}`}>
     <button onClick={enfosquir} className={`p-4 bg-white border border-fuchsia-900 rounded-full dark:bg-fuchsia-800 dark:text-white transition w-30 duration-200 `}>Llum/Fosc</button>
@@ -67,10 +84,11 @@ function App() {
 
     </Targeta>
     <Targeta titol='Tasques'>
+      <p>{missatgeTasques}</p>
       <FormulariTasca onAfegir={afegirTasca}/>
       <ul>
-        {tasques.map(({id, text})=>(
-        <li key={id}>{text}</li>
+        {tasques.map((tasca)=>(
+        <Tasca tasca={tasca} key={tasca.id}/>
       ))}
       </ul>
       
