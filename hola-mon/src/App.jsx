@@ -123,7 +123,7 @@ function App() {
         
       </div>
       
-      <Boto variant="perill" aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina tasques completades</Boto>
+      <Boto variant="perill" aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina completades</Boto>
       <FormulariTasca onAfegir={afegirTasca}/>
       <LlistaTasques tasques={tasques} onToggle={toggleTasca} onElimina={eliminaTasca}/>
       
