@@ -3,6 +3,7 @@ import Comptador from './components/Comptador.jsx'
 import Targeta from './components/Targeta.jsx'
 import FormulariTasca from './components/FormulariTasca.jsx'
 import Tasca from './components/Tasca.jsx';
+import LlistaTasques from './components/LlistaTasques.jsx';
 
 function App() {
   const [comptador, setComptador] = useState(0);
@@ -71,7 +72,22 @@ function App() {
     missatgeTasques=`Tens ${totalTasques} tasques afegides`
   }
   
-
+  //eliminar tasca
+  function eliminaTasca(id){
+    let llistaTasquesActualitzada=[]
+    tasques.forEach(t =>{
+      if (t.id!==(id)){
+        llistaTasquesActualitzada.push(t)
+      }
+    })
+    setTasques(llistaTasquesActualitzada);
+  }
+  
+  //canviar el check con toggle
+  function toggleTasca(id){
+    const llistanova =tasques.map((t)=>t.id===id? {...t, feta: !t.feta}:t)
+    setTasques(llistanova)
+  }
 
   return (
     <main className={`min-h-screen flex flex-col gap-8 justify-center items-center bg-fuchsia-50 dark:bg-fuchsia-950 transition duration-200 ${fosc ? 'dark' : ''}`}>
@@ -86,11 +102,7 @@ function App() {
     <Targeta titol='Tasques'>
       <p>{missatgeTasques}</p>
       <FormulariTasca onAfegir={afegirTasca}/>
-      <ul>
-        {tasques.map((tasca)=>(
-        <Tasca tasca={tasca} key={tasca.id}/>
-      ))}
-      </ul>
+      <LlistaTasques tasques={tasques} onToggle={toggleTasca} onElimina={eliminaTasca}/>
       
     </Targeta>
     
