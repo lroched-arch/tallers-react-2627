@@ -587,22 +587,22 @@ No guardis els comptadors en un `useState` separat: són estat derivat.
 
 Marca cada criteri quan el compleixis:
 
-- [ x ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
-- [ x ] El comptador de la Fitxa 02 continua funcionant.
-- [ x ] Cada component viu en un fitxer propi dins de `src/components/` (excepte `App`).
-- [ x ] L'input del formulari és controlat amb `value` i `onChange`.
-- [ x ] El formulari fa servir `onSubmit` i `preventDefault()`.
-- [ x ] La llista de tasques viu a `App`; el text i l'error viuen a `FormulariTasca`.
-- [ ] Afegir, completar i eliminar tasques crea arrays nous; no es muta l'estat.
-- [ ] Cada tasca té un `id` estable i la llista fa servir `key={tasca.id}`.
-- [ ] El formulari valida el text buit i mostra un missatge.
-- [ ] El filtre `totes`/`pendents`/`fetes` funciona.
-- [ ] La llista filtrada i els comptadors es calculen a partir de l'estat, sense duplicar-lo.
-- [ ] L'estat buit canvia segons el filtre.
-- [ ] Els botons tenen estats `hover`, focus visible i `disabled` quan cal.
-- [ ] Tailwind continua funcionant i no hi ha classes dinàmiques.
-- [ ] La consola del navegador no mostra errors ni avisos de `key`.
-- [ ] L'estructura de components és clara i cada fitxer té una responsabilitat.
+- [x] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
+- [x] El comptador de la Fitxa 02 continua funcionant.
+- [x] Cada component viu en un fitxer propi dins de `src/components/` (excepte `App`).
+- [x] L'input del formulari és controlat amb `value` i `onChange`.
+- [x] El formulari fa servir `onSubmit` i `preventDefault()`.
+- [x] La llista de tasques viu a `App`; el text i l'error viuen a `FormulariTasca`.
+- [x] Afegir, completar i eliminar tasques crea arrays nous; no es muta l'estat.
+- [x] Cada tasca té un `id` estable i la llista fa servir `key={tasca.id}`.
+- [x] El formulari valida el text buit i mostra un missatge.
+- [x] El filtre `totes`/`pendents`/`fetes` funciona.
+- [x] La llista filtrada i els comptadors es calculen a partir de l'estat, sense duplicar-lo.
+- [x] L'estat buit canvia segons el filtre.
+- [x] Els botons tenen estats `hover`, focus visible i `disabled` quan cal.
+- [x] Tailwind continua funcionant i no hi ha classes dinàmiques.
+- [x] La consola del navegador no mostra errors ni avisos de `key`.
+- [x] L'estructura de components és clara i cada fitxer té una responsabilitat.
 
 ---
 

@@ -31,14 +31,14 @@ function FormulariTasca({onAfegir}){
     
     return (
         
-        <form onSubmit={envia} noValidate className='flex flex-col justify-center items-center'>
+        <form className='text-center' onSubmit={envia} noValidate>
             <label htmlFor='tasca'>Nova  tasca</label>
-            <div className='flex flex-cols' >
+            <div>
                 <div id="error-tascas">
                    {error && <Missatge text={error} tipus="error"  />} 
                 </div>
-                
-                <input 
+                <div>
+                    <input 
                     className='border rounded-md m-2 p-1 dark:bg-fuchsia-100' 
                     id='tasca' 
                     type='text' 
@@ -47,10 +47,13 @@ function FormulariTasca({onAfegir}){
                     value={text}
                     maxLength={80}
                     onChange={canviaText}
-                    aria-describedby="error-tasca"/>
+                    aria-describedby="error-tasca"
+                    aria-invalid={error ? 'true' : 'false'}/>
                 
-            <Boto type="submit">Afegir</Boto>
-            <p className='text-center text-slate-500'>{text.length}/80</p>
+                    <Boto type="submit">Afegir</Boto>
+                </div>
+                
+                <p className='text-center text-slate-500'>{text.length}/80</p>
             </div>
             
         </form>

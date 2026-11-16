@@ -5,22 +5,23 @@ import FormulariTasca from './components/FormulariTasca.jsx'
 import Tasca from './components/Tasca.jsx';
 import LlistaTasques from './components/LlistaTasques.jsx';
 import Boto from './components/Boto.jsx';
+import FiltreTasques from './components/FiltreTasques.jsx';
 
 function App() {
+  //estats
   const [comptador, setComptador] = useState(0);
-  const [tasques, setTasques]=useState([])
+  const [tasques, setTasques]=useState([]);
+  const [filtre, setFiltre]=useState('totes');
+  const [fosc, setFosc]= useState(false);
   
-
+  //funcions comptador
   function duplica(){
     setComptador ((anterior) => anterior*2)
   }
-
   function reinicia(){
     setComptador(0)
   }
-
   let missatge;
-
   if (comptador==0){
     missatge='Encara no has començat'
   }
@@ -30,18 +31,16 @@ function App() {
   else {
     missatge='Vas per bon camí!'
   }
+  function canvia(delta){
+      setComptador ((anterior) => anterior + delta)
 
-  const [fosc, setFosc]= useState(false);
+  }
 
+  //funció dark
   function enfosquir(){
     setFosc (!fosc)
   }
-
-
-  function canvia(delta){
-    setComptador ((anterior) => anterior + delta)
-
-    }
+  //funció calcular tipus resultat comptador
   
   function calculaTipus(comptador){
         if (comptador === 0) return 'info'
@@ -50,6 +49,7 @@ function App() {
         
     }
 
+  //funció formulari tasques
   function afegirTasca(text){
     const novaTasca={
      id:crypto.randomUUID(), 
@@ -63,10 +63,7 @@ function App() {
   // comptador tasques i missatgeTasques
   let totalTasques=tasques.length;
   let missatgeTasques="";
-  if (totalTasques<=0){
-    missatgeTasques="Encara no hi ha tasques. Afegeix-ne una.";
-  }
-  else if(totalTasques==1){
+  if(totalTasques==1){
     missatgeTasques=`Tens ${totalTasques} tasca afegida`;
   }
   else{
@@ -104,33 +101,54 @@ function App() {
     const llistanova=tasques.filter((tasca)=>!tasca.feta)
     setTasques(llistanova)
   }
+  //Marca totes com a fetes
+  function marcaCompletades(){
+    const llistanova=tasques.map((tasca)=>({...tasca, feta:true}))
+      setTasques(llistanova)
+  }
+
+  //filtrar tasques
+  const tasquesFiltrades = tasques.filter((tasca) => {
+  if (filtre === 'pendents') return !tasca.feta
+  if (filtre === 'fetes') return tasca.feta
+  return true
+  })
+
+  //missatgeBuit a filtres
+  let missatgeBuit;
+  if (tasques.length>0 && pendents===0){
+    missatgeBuit='No hi ha tasques pendents. Bona feina!'
+  }
+  else if(tasques.length===0){
+    missatgeBuit='Encara no hi ha tasques. Afegeix-ne una.'
+  }
+  else if (tasques.length>0 &&  fetes===0){
+    missatgeBuit='Encara no has marcat cap tasca com a feta.'
+  }
+  
 
   return (
-    <main className={`min-h-screen flex flex-col gap-8 justify-center items-center bg-fuchsia-50 dark:bg-fuchsia-950 transition duration-200 ${fosc ? 'dark' : ''}`}>
+    <main className={`py-4 min-h-screen flex flex-col gap-8 justify-center items-center bg-fuchsia-50 dark:bg-fuchsia-950 transition duration-200 ${fosc ? 'dark' : ''}`}>
     <button onClick={enfosquir} className={`p-4 bg-white border border-fuchsia-900 rounded-full dark:bg-fuchsia-800 dark:text-white transition w-30 duration-200 `}>Llum/Fosc</button>
-    
-    <Targeta titol='Comptador'>
-      
-      <Comptador tipus={calculaTipus(comptador)} valor={comptador} missatge={missatge} onCanvia={canvia} onDuplica={duplica} onReinicia={reinicia} etiqueta="Hola món!">
-      </Comptador>
+    <div className='flex flex-col lg:flex-row lg:items-start items-center gap-8'>
+      <Targeta titol='Comptador'>
+        <Comptador tipus={calculaTipus(comptador)} valor={comptador} missatge={missatge} onCanvia={canvia} onDuplica={duplica} onReinicia={reinicia} etiqueta="Hola món!"/>
+      </Targeta>
 
-    </Targeta>
-    <Targeta titol='Tasques'>
-      <p className='text-md'>{missatgeTasques}</p>
-      <div className='bg-fuchsia-50 border rounded-xl p-2 border-fuchsia-900'>
-          <p><strong>Tasques fetes:</strong> {fetes}</p>
-          <p><strong>Tasques pendents:</strong> {pendents}</p>
-        
-      </div>
+      <Targeta titol='Tasques'>
+        <p className='text-md'>{missatgeTasques}</p>
+        <div className='bg-fuchsia-50 border rounded-xl p-2 border-fuchsia-900'>
+            <p><strong>Tasques fetes:</strong> {fetes}</p>
+            <p><strong>Tasques pendents:</strong> {pendents}</p>
+        </div>
+        <Boto variant="perill" aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina completades</Boto>
+        <Boto variant='primari' aria-label="Marca totes com a completades" onClick={marcaCompletades}>Marca totes com a fetes</Boto>
+        <FormulariTasca onAfegir={afegirTasca}/>
+        <FiltreTasques filtre={filtre} onCanviaFiltre={setFiltre}/>
+        <LlistaTasques missatgeBuit={missatgeBuit} tasques={tasquesFiltrades} onToggle={toggleTasca} onElimina={eliminaTasca}/>
+      </Targeta>
+    </div>
       
-      <Boto variant="perill" aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina completades</Boto>
-      <FormulariTasca onAfegir={afegirTasca}/>
-      <LlistaTasques tasques={tasques} onToggle={toggleTasca} onElimina={eliminaTasca}/>
-      
-    </Targeta>
-    
-      
-         
     </main>
   );
 }

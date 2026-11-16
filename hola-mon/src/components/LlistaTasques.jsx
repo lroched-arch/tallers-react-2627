@@ -1,13 +1,17 @@
 import Tasca from "./Tasca";
 
-function LlistaTasques({tasques, onToggle, onElimina}){
+function LlistaTasques({missatgeBuit,tasques, onToggle, onElimina}){
     return(
-        <ul>
-        {tasques.map((tasca)=>(
-          
-        <Tasca tasca={tasca}  onElimina={onElimina} onToggle={onToggle} key={tasca.id}/>
-        ))}
-        </ul> 
+        <div>
+            
+            {tasques.length===0 && <p>{missatgeBuit}</p>}
+            <ul>
+            {tasques.map((tasca)=>(
+            
+            <Tasca tasca={tasca}  onElimina={onElimina} onToggle={onToggle} key={tasca.id}/>
+            ))}
+            </ul>  
+        </div>
         )
          
     
