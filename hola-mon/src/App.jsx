@@ -136,16 +136,20 @@ function App() {
       </Targeta>
 
       <Targeta titol='Tasques'>
+        
+
+        <FormulariTasca onAfegir={afegirTasca}/>
         <p className='text-md'>{missatgeTasques}</p>
         <div className='bg-fuchsia-50 border rounded-xl p-2 border-fuchsia-900'>
-            <p><strong>Tasques fetes:</strong> {fetes}</p>
-            <p><strong>Tasques pendents:</strong> {pendents}</p>
+          <p><strong>Tasques fetes:</strong> {pendents}  | <strong>Tasques pendents:</strong> {fetes}</p>
         </div>
-        <Boto variant="perill" aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina completades</Boto>
-        <Boto variant='primari' aria-label="Marca totes com a completades" onClick={marcaCompletades}>Marca totes com a fetes</Boto>
-        <FormulariTasca onAfegir={afegirTasca}/>
         <FiltreTasques filtre={filtre} onCanviaFiltre={setFiltre}/>
         <LlistaTasques missatgeBuit={missatgeBuit} tasques={tasquesFiltrades} onToggle={toggleTasca} onElimina={eliminaTasca}/>
+        <div className='flex gap-2'>
+          <Boto variant='primari' disabled={pendents === 0} aria-label="Marca totes com a completades" onClick={marcaCompletades}>Marca totes com a fetes</Boto>
+          <Boto variant="perill" disabled={fetes === 0} aria-label="Elimina tasques completades" onClick={eliminarCompletades}>Elimina completades</Boto>
+        </div>
+        
       </Targeta>
     </div>
       
