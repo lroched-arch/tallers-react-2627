@@ -624,24 +624,24 @@ const { pendents, fetes } = useFiltreTasques()
 
 Marca cada criteri quan el compleixis:
 
-- [ ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
-- [ ] El comptador de la Fitxa 03 continua funcionant amb props.
-- [ ] `TasquesContext` existeix a `src/context/`.
-- [ ] `TasquesProvider` conté l'estat `tasques` i les accions `afegeixTasca`, `toggleTasca` i `eliminaTasca`.
-- [ ] `main.jsx` embolcalla `<App />` amb `<TasquesProvider>`.
-- [ ] `FormulariTasca` consumeix `useTasques()` i no rep `onAfegir`.
-- [ ] `Tasca` consumeix `useTasques()` i només rep la prop `tasca`.
-- [ ] `LlistaTasques` no transporta callbacks.
-- [ ] `FiltreTasquesContext` i `FiltreTasquesProvider` existeixen.
-- [ ] `FiltreTasquesProvider` consumeix `useTasques()` i està dins de `TasquesProvider`.
-- [ ] `FiltreTasques` consumeix `filtre` i `canviaFiltre`.
-- [ ] `LlistaTasques` consumeix `tasquesFiltrades` i `missatgeBuit`.
-- [ ] `App` consumeix `pendents` i `fetes`.
-- [ ] El text i l'error del formulari continuen sent estat local.
-- [ ] La llista filtrada i els comptadors continuen sent estat derivat.
-- [ ] No hi ha cap context per al comptador ni per a dades que només necessita un component.
-- [ ] La consola no mostra errors ni avisos de `key`.
-- [ ] Tailwind continua funcionant.
+- [ x ] Has continuat dins del projecte `hola-mon`; no n'has creat un de nou.
+- [ x ] El comptador de la Fitxa 03 continua funcionant amb props.
+- [ x ] `TasquesContext` existeix a `src/context/`.
+- [ x ] `TasquesProvider` conté l'estat `tasques` i les accions `afegeixTasca`, `toggleTasca` i `eliminaTasca`.
+- [ x ] `main.jsx` embolcalla `<App />` amb `<TasquesProvider>`.
+- [ x ] `FormulariTasca` consumeix `useTasques()` i no rep `onAfegir`.
+- [ x ] `Tasca` consumeix `useTasques()` i només rep la prop `tasca`.
+- [ x ] `LlistaTasques` no transporta callbacks.
+- [ x ] `FiltreTasquesContext` i `FiltreTasquesProvider` existeixen.
+- [ x ] `FiltreTasquesProvider` consumeix `useTasques()` i està dins de `TasquesProvider`.
+- [ x ] `FiltreTasques` consumeix `filtre` i `canviaFiltre`.
+- [ x ] `LlistaTasques` consumeix `tasquesFiltrades` i `missatgeBuit`.
+- [ x ] `App` consumeix `pendents` i `fetes`.
+- [ x ] El text i l'error del formulari continuen sent estat local.
+- [ x ] La llista filtrada i els comptadors continuen sent estat derivat.
+- [ x ] No hi ha cap context per al comptador ni per a dades que només necessita un component.
+- [ x ] La consola no mostra errors ni avisos de `key`.
+- [ x ] Tailwind continua funcionant.
 
 ---
 

@@ -1,14 +1,16 @@
 import Tasca from "./Tasca";
+import { useFiltreTasques } from '../context/FiltreTasquesContext.js'
 
-function LlistaTasques({missatgeBuit,tasques, onToggle, onElimina}){
+function LlistaTasques(){
+    const { missatgeBuit, tasquesFiltrades } = useFiltreTasques()
     return(
         <div>
             
-            {tasques.length===0 && <p>{missatgeBuit}</p>}
+            {tasquesFiltrades.length===0 && <p>{missatgeBuit}</p>}
             <ul>
-            {tasques.map((tasca)=>(
+            {tasquesFiltrades.map((tasca)=>(
             
-            <Tasca tasca={tasca}  onElimina={onElimina} onToggle={onToggle} key={tasca.id}/>
+            <Tasca tasca={tasca} key={tasca.id}/>
             ))}
             </ul>  
         </div>
